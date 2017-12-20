@@ -7,58 +7,39 @@ import HomePage from './src/components/HomePage';
 import Header from './src/components/Header';
 import NotAllowed from './src/components/NotAllowed';
 import AuthorizationComponent from './src/components/AuthorizationRoute';
+import AuthorizationComponentV1 from './src/components/AuthorizationRouteV1';
 
+import {createAuthElement} from './utils';
 
-const creatAuthElement =(auth,element)=>{
-    return React.createElement(AuthorizationComponent(auth)(element),{});
-};
 
 const Main = () =>(
     <main>
         <Switch>
-            <Route exact path='/' component={AuthorizationComponent(['admin'])(HomePage)}/>
-            <Route path='/admin' component={AuthorizationComponent(['admin'])(AdminPanel)}/>
-            <Route path='/user-details' component={AuthorizationComponent(['user'])(UserDetailsPanel)}/>
+            <Route exact path='/'  render={props => (
+                <AuthorizationComponentV1 allowedRoles={['admin','user']}>
+                    <HomePage/>
+                </AuthorizationComponentV1>
+            )}/>
+            {/*<Route exact path='/' component={AuthorizationComponent(['admin','user'])(HomePage)} route={true}/>*/}
+            <Route path='/admin'  render={props => (
+                <AuthorizationComponentV1 allowedRoles={['admin']} route={true}>
+                    <AdminPanel/>
+                </AuthorizationComponentV1>
+            )}/>
+
+            {/*<Route path='/admin' component={AuthorizationComponent(['admin'])(AdminPanel)} route={true}/>*/}
+            <Route path='/user-details' component={AuthorizationComponent(['admin','user'])(UserDetailsPanel)} route={true}/>
             <Route path='/not-allowed' component={NotAllowed}/>
         </Switch>
     </main>
 );
 
-
-// const Header1 = ()=>{
-//     const tt2 = renderHeader();
-//     return (
-//         tt2
-//     )
-// };
-//
-// const renderHeader = () => {
-//     React.createElement("div",{} ,AuthorizationComponent(['admin'])(Header));
-//
-// };
-
-//const header =  creatAuthElement(['admin'],Header);
-
-//const main =  React.createElement(AuthorizationComponent(['admin'])(Main),{});
-
-// class Header12 extends React.Component {
-//
-//     render() {
-//         const jopa = AuthorizationComponent(['admin'])(Header);
-//         return React.createElement(jopa, {})
-//     }
-// }
-//
-//
-
 class App extends React.Component {
-
-
     render() {
         return (
             <React.Fragment>
-                {creatAuthElement(['admin'],Header)}
-                {creatAuthElement(['admin'],Main)}
+                {createAuthElement(['admin','user'],Header)}
+                {createAuthElement(['admin','user'],Main)}
             </React.Fragment>
         )
     }

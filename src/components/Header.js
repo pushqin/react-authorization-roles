@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router-dom';
-import AuthorizationRoute from './AuthorizationRoute';
-
+import AuthLink from '../components/AuthLink';
 class Header extends React.Component {
 
     render() {
@@ -9,9 +8,9 @@ class Header extends React.Component {
             <header>
                 <nav>
                     <ul>
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/admin'>Admin</Link></li>
-                        <li><Link to='/user-details'>User Details</Link></li>
+                        <AuthLink to='/' auth={['admin','user']}><li>Home</li></AuthLink>
+                        <AuthLink to='/admin' auth={['admin']}><li>Admin</li></AuthLink>
+                        <AuthLink to='/user-details' auth={['admin','user']}><li>User Details</li></AuthLink>
                     </ul>
                 </nav>
             </header>

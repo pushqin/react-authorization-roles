@@ -4,13 +4,13 @@
 // index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter }from 'react-router-dom';
+import { BrowserRouter,HashRouter }from 'react-router-dom';
 import App from './App.js';
 
 const app =(
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
 );
 
 ReactDOM.render(app, document.getElementById('app'));
