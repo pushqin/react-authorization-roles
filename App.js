@@ -1,4 +1,6 @@
 // App.js
+import styles from './src/style.css'
+
 import React from 'react';
 import {Route,Switch } from 'react-router-dom';
 import AdminPanel from './src/components/AdminPanel';

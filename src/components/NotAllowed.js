@@ -4,7 +4,7 @@ import {Link } from 'react-router-dom';
 class NotAllowed extends React.Component {
     render() {
         return (
-            <div>NOT ALLOWED</div>
+            <div className="big">NOT ALLOWED</div>
         );
     }
 }

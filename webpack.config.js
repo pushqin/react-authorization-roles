@@ -13,6 +13,7 @@ const config = {
     },
     devtool: 'source-map',
     module: {
+   
         loaders: [
             {
                 test:/\.jsx?$/,
@@ -25,9 +26,15 @@ const config = {
                         },
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
             }
-        ],
-
+        ]
     }
 };
 
