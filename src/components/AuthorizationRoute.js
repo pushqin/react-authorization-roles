@@ -27,7 +27,4 @@ const AuthorizationRoute = (allowedRoles) => (WrappedComponent) => {
     }
 };
 
-
-
-
 export default AuthorizationRoute;

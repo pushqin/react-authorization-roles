@@ -4,8 +4,8 @@
 import React from 'react';
 import AuthorizationComponent from './src/components/AuthorizationRoute';
 
-export const createAuthElement =(auth,element,props)=>{
-    return React.createElement(AuthorizationComponent(auth)(element),props);
+export const createAuthElement =(allowedRoles,element,props)=>{
+    return React.createElement(AuthorizationComponent(allowedRoles)(element),props);
 };
 
 export const userRole = 'admin';
