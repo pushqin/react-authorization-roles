@@ -1,12 +1,12 @@
 import React, {PropTypes} from 'react';
 import {Link } from 'react-router-dom';
 
-class AdminPanel extends React.Component {
+class NotAllowed extends React.Component {
     render() {
         return (
-            <div>Admin panel</div>
+            <div>NOT ALLOWED</div>
         );
     }
 }
-AdminPanel.propTypes = {};
-export default AdminPanel;
+NotAllowed.propTypes = {};
+export default NotAllowed;
