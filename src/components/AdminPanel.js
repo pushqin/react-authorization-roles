@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-class AdminPanel extends React.PureComponent {
+class AdminPanel extends React.Component {
     render() {
         return (
             <div>Admin panel</div>

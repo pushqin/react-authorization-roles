@@ -1,16 +1,15 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router-dom';
-import {auth} from '../helper';
-class Header extends React.PureComponent {
-
+import Auth from '../components/Auth';
+class Header extends React.Component {
     render() {
         return (
             <header>
                 <nav>
                     <ul>
-                        {auth(['admin','user']) && <li><Link to='/'>Home</Link></li>}
-                        {auth(['admin']) && <li><Link to='/admin'>Admin</Link></li>}
-                        {auth(['admin','user']) && <li><Link to='/user-details'>User Details</Link></li>}
+                        <li><Auth roles={['admin', 'user']}><Link to='/'>Home</Link></Auth></li>
+                        <li><Auth roles={['admin']}><Link to='/admin'>Admin</Link></Auth></li>
+                        <li><Auth roles={['admin', 'user']}><Link to='/user-details'>User Details</Link></Auth></li>
                     </ul>
                 </nav>
             </header>
@@ -18,5 +17,4 @@ class Header extends React.PureComponent {
     }
 }
 Header.propTypes = {};
-
 export default Header;
