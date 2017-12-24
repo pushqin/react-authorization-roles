@@ -14,16 +14,18 @@ const Main = () => (
     <main>
         <Switch>
             <Route exact path='/' render={props => (
-                <AuthorizationComponentV1 allowedRoles={['admin', 'user']}>
-                    <HomePage/>
-                </AuthorizationComponentV1>
+                <HomePage allowedRoles={['admin', 'user']}/>
             )}/>
+
+
             {/*<Route exact path='/' component={AuthorizationComponent(['admin','user'])(HomePage)} route={true}/>*/}
             <Route path='/admin' render={props => (
                 <AuthorizationComponentV1 allowedRoles={['admin']} route={true}>
                     <AdminPanel/>
                 </AuthorizationComponentV1>
             )}/>
+
+
             {/*<Route path='/admin' component={AuthorizationComponent(['admin'])(AdminPanel)} route={true}/>*/}
             <Route path='/user-details' component={AuthorizationComponent(['admin', 'user'])(UserDetailsPanel)}
                    route={true}/>
@@ -31,6 +33,9 @@ const Main = () => (
         </Switch>
     </main>
 );
+
+
+
 class App extends React.Component {
     render() {
         return (

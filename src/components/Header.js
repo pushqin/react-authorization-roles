@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Route} from 'react-router-dom';
 import AuthLink from '../components/AuthLink';
 import AuthorizationRouteV1 from '../components/AuthorizationRouteV1';
 class Header extends React.Component {
@@ -8,11 +8,12 @@ class Header extends React.Component {
             <header>
                 <nav>
                     <ul>
-                        <AuthLink to='/' allowedRoles={['admin', 'user']}><li>Home</li></AuthLink>
-                        <AuthLink to='/admin' allowedRoles={['admin']}><li>Admin</li></AuthLink>
-                        <AuthLink to='/user-details' allowedRoles={['admin', 'user']}><li>User Details</li></AuthLink>
+                        <AuthLink to='/' allowedroles={['admin', 'user']}><li>Home</li></AuthLink>
+                        <AuthLink to='/admin' allowedroles={['admin']}><li>Admin</li></AuthLink>
+                        <AuthLink to='/user-details' allowedroles={['admin', 'user']}><li>User Details</li></AuthLink>
 
                         <br/>
+
                         <AuthorizationRouteV1 allowedRoles={['admin', 'user']}>
                             <Link to='/' ><li>Home</li></Link>
                         </AuthorizationRouteV1>
