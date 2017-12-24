@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router-dom';
-import AuthorizationRoute from './AuthorizationRoute';
 import {auth} from '../helper';
 class Header extends React.PureComponent {
 
