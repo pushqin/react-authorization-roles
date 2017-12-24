@@ -11,11 +11,9 @@ class Main extends React.Component {
     render() {
         return (
             <main>
-                <Switch>
-                    <Auth><Route exact path='/' component={HomePage}/> </Auth>
-                    <Auth><Route path='/admin' component={AdminPanel}/></Auth>
-                    <Auth><Route path='/user-details' component={UserDetailsPanel}/></Auth>
-                </Switch>
+                <Auth roles={['admin', 'user']}><Route exact path='/' component={HomePage}/> </Auth>
+                <Auth roles={['admin']}><Route path='/admin' component={AdminPanel}/></Auth>
+                <Auth roles={['admin', 'user']}><Route path='/user-details' component={UserDetailsPanel}/></Auth>
             </main>
         );
     }

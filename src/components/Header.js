@@ -7,9 +7,9 @@ class Header extends React.Component {
             <header>
                 <nav>
                     <ul>
-                        <li><Auth roles={['admin', 'user']}><Link to='/'>Home</Link></Auth></li>
-                        <li><Auth roles={['admin']}><Link to='/admin'>Admin</Link></Auth></li>
-                        <li><Auth roles={['admin', 'user']}><Link to='/user-details'>User Details</Link></Auth></li>
+                        <Auth roles={['admin', 'user']}><li><Link to='/'>Home</Link></li></Auth>
+                        <Auth roles={['admin']}><li><Link to='/admin'>Admin</Link></li></Auth>
+                        <Auth roles={['admin', 'user']}><li><Link to='/user-details'>User Details</Link></li></Auth>
                     </ul>
                 </nav>
             </header>

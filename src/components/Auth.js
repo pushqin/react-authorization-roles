@@ -5,7 +5,7 @@ class Auth extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.children }
+                {this.props.roles.includes(role) ? this.props.children : null}
             </React.Fragment>
         )
     }
