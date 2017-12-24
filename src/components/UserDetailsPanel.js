@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-class UserDetailsPanel extends React.Component {
+class UserDetailsPanel extends React.PureComponent {
     render() {
         return (
-            <div>UserDetailsPanel</div>
+            <div>User Details Panel</div>
         );
     }
 }
