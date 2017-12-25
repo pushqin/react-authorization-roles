@@ -1,16 +1,17 @@
 import React, {PropTypes} from 'react';
-import  AuthorizationRoute from '../AuthorizationRoute';
-import  AuthorizationRouteV1 from '../AuthorizationRouteV1';
+import Auth from './../Auth';
+import WithBorder from '../WithBorder';
 
 class AuthButton extends React.Component {
     render() {
         return (
-            <AuthorizationRouteV1 allowedRoles={this.props.allowedRoles}>
+            <WithBorder>
                 <button className="big">{this.props.name}</button>
-            </AuthorizationRouteV1>
+                {this.props.children}
+            </WithBorder>
         );
     }
 }
 AuthButton.propTypes = {};
 
-export default AuthButton;
+export default Auth(AuthButton);

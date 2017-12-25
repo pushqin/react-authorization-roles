@@ -1,14 +1,21 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router-dom';
-import AuthorizationRouteV1 from '../AuthorizationRouteV1';
+import Auth from './../Auth';
+import WithBorder from './../WithBorder';
+
 class AuthLabel extends React.Component {
     render() {
+        // use classname package here
+        
+        const injectAuthPropToChildren = React.Children.map(this.props.children, child =>
+            React.cloneElement(child, { allowedRoles: child.props.allowedRoles || this.props.allowedRoles }));
+        
         return (
-            <AuthorizationRouteV1 allowedRoles={this.props.allowedRoles}>
-                <label className="big">{this.props.name}</label>
-            </AuthorizationRouteV1>
+            <WithBorder>
+                <label className={`${this.props.className || ''} inline-block big`}>{this.props.name}</label>
+                {injectAuthPropToChildren}
+            </WithBorder>
         );
     }
 }
 AuthLabel.propTypes = {};
-export default AuthLabel;
+export default Auth(AuthLabel);

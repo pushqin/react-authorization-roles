@@ -1,20 +1,21 @@
 import React, {PropTypes} from 'react';
-import {Link,Route} from 'react-router-dom';
 import AuthLink from '../components/AuthLink';
-import AuthorizationRouteV1 from '../components/AuthorizationRouteV1';
+import {user,admin} from '../../utils'
 class Header extends React.Component {
     render() {
 
-
         return (
-            <header>
+            <header className='border'>
+                HEADER
                 <nav>
                     <ul>
-                        <AuthLink to='/' allowedroles={['admin']}><li>Home</li></AuthLink>
-                        <AuthLink to='/admin' allowedroles={['admin']}><li>Admin</li></AuthLink>
-                        <AuthLink to='/user-details' allowedroles={['admin', 'user']}><li>User Details</li></AuthLink>
+                        <AuthLink to='/' allowedRoles={user}><li className='border'>Home</li></AuthLink>
+                        <AuthLink to='/admin' allowedRoles={admin}><li className='border'>Admin</li></AuthLink>
+                        <AuthLink to='/user-details' allowedRoles={user}><li className='border'>User Details</li></AuthLink>
+                        
                     </ul>
                 </nav>
+                {this.props.children}
             </header>
         );
     }
