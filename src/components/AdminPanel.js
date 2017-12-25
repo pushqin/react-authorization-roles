@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import Auth from './Auth';
 import AuthLabel from './Controls/AuthLabel';
-import {hulk,user} from '../../utils';
+import {hulk,unique} from '../../utils';
 class AdminPanel extends React.Component {
     render() {
         return (
@@ -11,7 +11,7 @@ class AdminPanel extends React.Component {
                     <AuthLabel name='Admin Inner Label 1 - No Roles'></AuthLabel>
                     <AuthLabel name='Admin Inner Label 99 - No Roles'></AuthLabel>
                     <AuthLabel allowedRoles={hulk}  name='Only HULK can see'></AuthLabel>
-                    <AuthLabel allowedRoles={user}  name='Lucky user - NOPE config error'></AuthLabel>
+                    <AuthLabel allowedRoles={unique}  name='Lucky user - NOPE config error'></AuthLabel>
                 </AuthLabel>
                 {this.props.children}
             </div>

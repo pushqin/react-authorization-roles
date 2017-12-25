@@ -3,8 +3,9 @@
  */
 import React from 'react';
 
-export const userRole = 'user';
+export const userRole = 'admin';
 
+// roles that can see the component
 export const hulk = ['hulk'];
 export const god = ['god',...hulk];
 export const admin = ['admin',...god];
