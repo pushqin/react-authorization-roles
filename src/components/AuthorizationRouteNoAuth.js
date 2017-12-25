@@ -12,16 +12,7 @@ const AuthorizationRouteNoAuth = (WrappedComponent) => {
             if (this.props.allowedroles.includes(userRole)) {
                 return <WrappedComponent {...this.props} />
             } else {
-                if(this.props.route){
-                    return(
-                        <Redirect to={'/not-allowed'}/>
-                    )
-                }
-                else{
-                    return(
-                        null
-                    )
-                }
+                return null;
             }
         }
     }

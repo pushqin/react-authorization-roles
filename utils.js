@@ -8,8 +8,10 @@ export const createAuthElement =(allowedRoles,element,props)=>{
     return React.createElement(AuthorizationComponent(allowedRoles)(element),props);
 };
 
-export const userRole = 'admin';
+export const user = ['user'];
+export const su = ['su','user'];
+export const admin = ['admin','su','user'];
 
-export const AllowedRolesAdmin = ['admin'];
-export const AllowedRolesUser = ['user'];
-export const AllowedRolesAdminAndUser= ['admin','user'];
+
+const admin1 = su.concat('admin');
+const admin2 = [...su,'admin'];
